@@ -19,6 +19,7 @@ import lombok.ToString;
 
 @Entity 
 @Data
+
 public class PetStore {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,6 +43,8 @@ public class PetStore {
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	private Set<Employee> employees = new HashSet<>();
+
+	
 	
 	
 }

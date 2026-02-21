@@ -8,17 +8,17 @@ import pet.store.entity.Customer;
 @NoArgsConstructor
 public class PetStoreCustomer {
 	private Long customerID;
-	private String customerEmail;
 	private String customerFirstName;
 	private String customerLastName;
+	private String customerEmail;
 	
 	// Constructor that takes a Customer object
 	public PetStoreCustomer(Customer customer) {
-		this.customerID = customer.getCustomerID();
-		this.customerEmail = customer.getCustomerEmail();
-		this.customerFirstName = customer.getCustomerFirstName();
-		this.customerLastName = customer.getCustomerLastName();
-		
+		customerID = customer.getCustomerID();
+		customerFirstName = customer.getCustomerFirstName();
+		customerLastName = customer.getCustomerLastName();
+		customerEmail = customer.getCustomerEmail();
 	}
+	
 	
 }

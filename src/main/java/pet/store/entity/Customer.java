@@ -16,7 +16,6 @@ import lombok.ToString;
 @Entity 
 @Data
 public class Customer {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long customerID;
@@ -28,4 +27,5 @@ public class Customer {
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	private Set<PetStore> petStores = new HashSet<>();
+
 }

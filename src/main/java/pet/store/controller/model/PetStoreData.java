@@ -1,5 +1,6 @@
 package pet.store.controller.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import lombok.Data;
@@ -11,6 +12,9 @@ import pet.store.entity.PetStore;
 @Data
 @NoArgsConstructor
 public class PetStoreData {
+	
+	
+	
 	private Long petStoreId;
 	private String petStoreName;
 	private String petStoreAddress;
@@ -19,8 +23,8 @@ public class PetStoreData {
 	private String petStoreZip;
 	private String petStorePhone;
 	
-	private Set<PetStoreCustomer> customers;
-	private Set<PetStoreEmployee> employees;
+	private Set<PetStoreCustomer> customers = new HashSet<>();
+	private Set<PetStoreEmployee> employees = new HashSet<>();
 	
 	// Constructor that takes PetStore as a parameter
 	public PetStoreData(PetStore petStore) {
@@ -38,16 +42,16 @@ public class PetStoreData {
 		// Set customers using loop	
 		for(Customer customer: petStore.getCustomers()) {
 			customers.add(new PetStoreCustomer(customer));
-			this.petStoreId = petStore.getPetStoreId();
+			
 		}
 		
 		// Set employees using loop
 		for(Employee employee: petStore.getEmployees()) {
 			employees.add(new PetStoreEmployee(employee));
-			
 		}
 		
 
 	}
+	
 }
 
