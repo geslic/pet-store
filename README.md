@@ -1,54 +1,73 @@
 # 🐾 Pet Store REST API
 
+> Production-style REST API built with Spring Boot and MySQL
+> demonstrating relational modeling, JPA persistence, and clean RESTful
+> design.
+
+------------------------------------------------------------------------
+
 ## 👤 Author
 
-**Blake Geslicki**\
+Blake Geslicky\
 GitHub: https://github.com/geslic
 
 ------------------------------------------------------------------------
 
-## 📌 Overview
+## 🚀 Tech Stack
 
-This project is a RESTful API built using Spring Boot 3, Spring Data
-JPA, and MySQL.\
-It manages pet stores, employees, and customers with full CRUD
-functionality.
-
-The application demonstrates:
-
--   REST API design
--   Entity relationships (One-to-Many and Many-to-Many)
--   JPA/Hibernate persistence
--   MySQL database integration
--   Maven project management
+-   Java 17
+-   Spring Boot 3.x
+-   Spring Web
+-   Spring Data JPA
+-   MySQL
+-   Maven
+-   Lombok
 
 ------------------------------------------------------------------------
 
-## 🛠 Tech Stack
+## 📌 Project Overview
 
--   Java 17\
--   Spring Boot 3.x\
--   Spring Web\
--   Spring Data JPA\
--   MySQL\
--   Maven\
--   Lombok
+This backend application manages pet stores, employees, and customers
+through a fully RESTful API.
+
+It demonstrates:
+
+-   Clean layered architecture (Controller → Service → Repository →
+    Entity)
+-   One-to-Many and Many-to-Many JPA relationships
+-   Proper HTTP status handling
+-   Database persistence with MySQL
+-   Maven-based build lifecycle
+
+------------------------------------------------------------------------
+
+## 🏗 Architecture
+
+The application follows a layered backend structure:
+
+-   Controller Layer -- Handles HTTP requests and responses
+-   Service Layer -- Business logic and transaction management
+-   Repository Layer -- Spring Data JPA interfaces
+-   Entity Layer -- JPA-mapped domain models
+-   DTO Layer -- Response models to avoid exposing entities directly
+
+This promotes separation of concerns and maintainability.
 
 ------------------------------------------------------------------------
 
 ## 🗄 Database Setup
 
-1.  Start MySQL
+1.  Start MySQL:
 
     sudo systemctl start mysql
 
-2.  Create Database and User
+2.  Create database and user:
 
     CREATE DATABASE pet_store; CREATE USER 'pet_store'@'localhost'
     IDENTIFIED BY 'pet_store'; GRANT ALL PRIVILEGES ON pet_store.\* TO
     'pet_store'@'localhost'; FLUSH PRIVILEGES;
 
-3.  Configure application.yaml
+3.  Ensure application.yaml contains:
 
     spring: datasource: url: jdbc:mysql://localhost:3306/pet_store
     username: pet_store password: pet_store jpa: hibernate: ddl-auto:
@@ -58,11 +77,11 @@ The application demonstrates:
 
 ## ▶️ Running the Application
 
-Option A --- Development Mode
+### Development Mode
 
 mvn spring-boot:run
 
-Option B --- Build & Run JAR
+### Build and Run JAR
 
 mvn clean package java -jar target/pet-store-0.0.1-SNAPSHOT.jar
 
@@ -72,28 +91,15 @@ http://localhost:8080
 
 ------------------------------------------------------------------------
 
-## 📡 API Endpoints
+## 📡 Example API Request
 
-Create Pet Store\
-POST /pet_store
+Create Pet Store:
 
-Get All Pet Stores\
-GET /pet_store/petstores
-
-Get Pet Store by ID\
-GET /pet_store/{petStoreId}
-
-Update Pet Store\
-PUT /pet_store/{petStoreId}
-
-Delete Pet Store\
-DELETE /pet_store/{petStoreId}
-
-Add Employee\
-POST /pet_store/{petStoreId}/employee
-
-Add Customer\
-POST /pet_store/{petStoreId}/customer
+curl -X POST http://localhost:8080/pet_store -H "Content-Type:
+application/json" -d '{ "petStoreName":"Blake Pet Store",
+"petStoreAddress":"123 Main St", "petStoreCity":"Los Angeles",
+"petStoreState":"CA", "petStoreZip":"90001",
+"petStorePhone":"555-555-5555" }'
 
 ------------------------------------------------------------------------
 
@@ -120,10 +126,17 @@ Customer - Many-to-Many → PetStore
 
 ------------------------------------------------------------------------
 
-## 🚀 Status
+## 🎯 Why This Project Matters
 
-Application builds successfully with:
+This project demonstrates practical backend development skills
+including:
 
-mvn clean package
+-   RESTful API design
+-   Relational database modeling
+-   JPA entity mapping
+-   Clean architecture principles
+-   Build automation with Maven
+-   Version control with Git and GitHub
 
-All endpoints tested using curl.
+This repository represents backend development work suitable for
+internship-level and junior backend roles.
